@@ -19,13 +19,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update the square visually for the current player
                 square.textContent = currentPlayer;
                 square.classList.add(currentPlayer);
-
-                // Update our internal game state array to record the move
-                gameState[index] = currentPlayer;
+                gameState[index] = currentPlayer; // Update our internal game state array to record the move
 
                 // Alternate the player for the next turn
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             }
+        });
+
+        // Adds hover class when the mouse enters a squre
+        square.addEventListener('mouseover', () => {
+            square.classList.add('hover');
+        });
+
+        // Removes hover class when the mouse leaves the square
+        square.addEventListener('mouseout', () => {
+            square.classList.remove('hover');
         });
     });
 });
